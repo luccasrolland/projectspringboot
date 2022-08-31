@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class ProjectWebSpringBootApplication implements CommandLineRunner {
+public class ProjectwebspringbootApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -21,7 +21,7 @@ public class ProjectWebSpringBootApplication implements CommandLineRunner {
 	private ProductRepository productRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectWebSpringBootApplication.class, args);
+		SpringApplication.run(ProjectwebspringbootApplication.class, args);
 	}
 
 	@Override
