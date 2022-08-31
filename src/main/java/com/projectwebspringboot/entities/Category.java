@@ -2,24 +2,27 @@ package com.projectwebspringboot.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
+@Entity
 public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
 
     @JsonIgnore
+    @OneToMany(mappedBy = "category")
     private List<Product> products = new ArrayList<>();
 
     public Category () {
     }
 
-    public Category(long id, String name) {
+    public Category(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -28,7 +31,7 @@ public class Category implements Serializable {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,6 +48,8 @@ public class Category implements Serializable {
     }
 
     //Método de comparação de objetos.
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class ProjectspringbootApplication implements CommandLineRunner {
+public class ProjectWebSpringBootApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -21,18 +21,18 @@ public class ProjectspringbootApplication implements CommandLineRunner {
 	private ProductRepository productRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjectspringbootApplication.class, args);
+		SpringApplication.run(ProjectWebSpringBootApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		Category cat1 = new Category(1L, "Electronics");
-		Category cat2 = new Category(2L, "Books");
+		Category cat1 = new Category(null, "Electronics");
+		Category cat2 = new Category(null, "Books");
 
-		Product p1 = new Product(1L, "TV", 2200.00, cat1);
-		Product p2 = new Product(2L, "Domain Driven Design", 120.00, cat2);
-		Product p3 = new Product(3L, "PS5", 2800.00, cat1);
-		Product p4 = new Product(4L, "Docker", 100.00, cat2);
+		Product p1 = new Product(null, "TV", 2200.00, cat1);
+		Product p2 = new Product(null, "Domain Driven Design", 120.00, cat2);
+		Product p3 = new Product(null, "PS5", 2800.00, cat1);
+		Product p4 = new Product(null, "Docker", 100.00, cat2);
 
 		cat1.getProducts().addAll(Arrays.asList(p1, p3));
 		cat2.getProducts().addAll(Arrays.asList(p2, p4));
